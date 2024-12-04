@@ -17,17 +17,13 @@
 
 .highlight-e {
     font-weight: bold;
-    display: inline-block;
-    width: 64.28px;
-    font-size: 101.92px;
+    font-size: 74px;
     color: #DB6FEB;
 }
 
 .highlight-vote {
     font-weight: bold;
-    display: inline-block;
-    width: 121.75px;
-    font-size: 50px;
+    font-size: 72px;
 }
 
 input.form-control.email-input{
@@ -48,11 +44,12 @@ input.form-control.password-input{
     border-radius: 8px;
 }
 .login-btn {
+    color: #FFFFFF;
     font-weight: bold;
     background-color: #D07BE0;
     border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    /* cursor: pointer; /
+    / transition: background-color 0.3s; */
     width: 382px;
     height: 46px;
 }
@@ -66,7 +63,6 @@ input.form-control.password-input{
     font-size: 14px;
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
     margin-bottom: 24px;
 }
 

@@ -8,6 +8,7 @@ body {
 }
 
 .create-survey-container {
+    background-color: #f5f5f0;
     padding: 20px;
     min-height: 100vh;
 }
@@ -88,3 +89,7 @@ body {
 .btn-success:hover {
     transform: scale(1.05);
 }
+
+ .form-label-create {
+    color: black;
+ }

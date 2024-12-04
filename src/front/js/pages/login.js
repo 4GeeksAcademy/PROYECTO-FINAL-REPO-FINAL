@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from "react";
 import "../../styles/login.css";
 import { useNavigate, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import loginImage from "/workspaces/PROYECTO-FINAL-REPO-FINAL/src/front/img/login.png";
+import loginImage from "../../img/login.png";
 
 // Función de login que almacena el token y user_id en localStorage
 const performLogin = async (email, password) => {
@@ -78,8 +78,8 @@ export const Login = () => {
 
             <div className="login-form-container">
                 <h1 className="login-title">
-                    <span className="highlight-e">E</span>
-                    <span className="highlight-vote">vote</span>
+                    <span className="highlight-e">Survey</span>
+                    <span className="highlight-vote">Hub</span>
                 </h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group-placeholder">

@@ -1,10 +1,7 @@
-import React, { useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
-import example from "/workspaces/PROYECTO-FINAL-REPO-FINAL/src/front/img/roadmapexample.png";
-import { GrActions } from "react-icons/gr";
-import Header from "/workspaces/PROYECTO-FINAL-REPO-FINAL/src/front/img/homeimg.png";
+import Header from "../../img/homeimg.png";
 import Stepper1 from "../../img/stepper1.png"
 import Stepper2 from "../../img/stepper2.png"
 import Stepper3 from "../../img/stepper3.png"
@@ -15,11 +12,8 @@ import Footer4 from "../../img/foot4.png"
 
 
 export const Home = () => {
-  const { store, actions } = useContext(Context);
 
-  // useEffect(() => {
-  //   actions.getSurveys();
-  // }, []);
+
 
   return (
     <div className="home-container ">
@@ -38,7 +32,7 @@ export const Home = () => {
       </div>
       {/* Feature Highlights Section */}
       <div className=" why-part">
-        <p className="why-evote text-center">Why Evote?</p>
+        <p className="why-evote text-center">Why SurveyHUB?</p>
         <p className="why-text text-center">“Participating in our surveys is easy: simply sign up, choose the surveys that interest you<br />
           most, share your opinions and start earning rewards for every answer you complete.”</p>
         <div className="container card-container">
@@ -119,7 +113,7 @@ export const Home = () => {
         </div>
       </div>
       <div className="home-foot">
-        <p className="text-foot text-center">Evote help you to help</p>
+        <p className="text-foot text-center">SurveyHUB help you to help</p>
         <div className="foot-img">
           <img src={Footer1} alt="Imagen" className=" img-homefooter "></img>
           <img src={Footer2} alt="Imagen" className=" img-homefooter "></img>

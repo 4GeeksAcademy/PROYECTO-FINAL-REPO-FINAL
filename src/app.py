@@ -66,12 +66,13 @@ def serve_file(path):
         admin_path = path.replace("admin/", "")
         response = send_from_directory(static_file_dir, admin_path)
     else:
-        # Handle general static file serving
+        # Serve static files or return index.html for client-side routing
         if not os.path.isfile(os.path.join(static_file_dir, path)):
-            path = 'index.html'
+            path = 'index.html'  # Devuelve index.html si no se encuentra el archivo solicitado
         response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0  # avoid cache memory
     return response
+
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':

@@ -1,67 +1,101 @@
-/* UserProfile.css */
+* CSS updated /
 
-body {
-    background-color: #f5f5f0; /* Blanco hueso */
-    color: rgb(63, 55, 77); /* Morado oscuro */
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .user-profile-container {
-    padding: 20px;
-    min-height: 100vh;
-  }
-  
-  .header-section {
-    background-color: rgb(63, 55, 77);
-    color: #f5f5f0; /* Blanco hueso */
-    border-radius: 20px;
-  }
-  
-  .user-details-card {
-    background-color: #ffffff;
-    color: rgb(63, 55, 77); /* Morado oscuro */
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .update-account-btn {
-    background-color: #DB6FEB;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    transition: transform 0.3s ease;
-    padding: 10px 20px;
-  }
-  
-  .update-account-btn:hover {
-    transform: scale(1.05);
-  }
-  
-  .change-password-btn {
-    background-color: #FFC107;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    transition: transform 0.3s ease;
-    padding: 10px 20px;
-  }
-  
-  .change-password-btn:hover {
-    transform: scale(1.05);
-  }
-  
-  .delete-account-btn {
-    background-color: #D9534F;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    transition: transform 0.3s ease;
-    padding: 10px 20px;
-  }
-  
-  .delete-account-btn:hover {
-    transform: scale(1.05);
-  }
-  
+/* / userProfile.css */ */
+
+.user-profile-container {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #2E2B3B;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-section {
+  background-color: rgb(63, 55, 77) !important;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-section h2 {
+  color: white;
+  font-weight: bold;
+}
+
+.header-section h2::first-letter{
+  color: #DB6FEB;
+  font-weight: bold;
+}
+
+.user-details-card {
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgb(63, 55, 77);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.form-control {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.form-control:read-only {
+  background-color: #f8f9fa;
+}
+
+.btn-link {
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+}
+
+.update-account-btn {
+  background-color: #5e2e84;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.update-account-btn:hover {
+  background-color: #482063;
+}
+
+.d-flex.align-items-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-btn{
+  background-color: #DB6FEB;
+  color: white;
+}
+
+.password-btn{
+  background-color: #DB6FEB;
+  color: white;
+}

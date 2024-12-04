@@ -16,19 +16,14 @@
 }
 
 .register-e {
-    height: 101.2px;
     font-weight: bold;
-    display: inline-block;
-    width: 64.28px;
-    font-size: 101.92px;
+    font-size: 74px;
     color: #DB6FEB;
 }
 
 .register-vote {
     font-weight: bold;
-    display: inline-block;
-    width: 121.75px;
-    font-size: 50px;
+    font-size: 72px;
 }
 input.form-control.register-input{
     height: 43px;
@@ -38,6 +33,7 @@ input.form-control.register-input{
 
 
 .register-btn {
+    width: 382px;
     height: 43px;
     margin-top: 30px;
     background-color: #DB6FEB;
@@ -62,3 +58,7 @@ input.form-control.register-input{
     height: 60px;
 }
 
+div.error-message{
+    font-size: 14px;
+    margin-top: 10px;
+}

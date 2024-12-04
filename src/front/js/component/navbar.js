@@ -1,3 +1,4 @@
+// Navbar.js
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -22,8 +23,8 @@ export const Navbar = () => {
           to={store.isAuthenticated ? "/user_logued" : "/"}
         >
           <VscGraph className="navbar-icon" />
-          <span className="Etitle navbar-title-highlight">E-</span>
-          <span className="text-white Vtitle">Vote</span>
+          <span className="Etitle navbar-title-highlight">Survey-</span>
+          <span className="text-white Vtitle">Hub</span>
         </Link>
 
         {/* Toggle button for mobile */}
@@ -43,14 +44,6 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarContent">
           {/* Right elements */}
           <ul className="navbar-nav ms-auto flex-row align-items-center">
-            {store.isAuthenticated && store.user && (
-              <li className="nav-item me-3">
-                <span className="navbar-text">
-                  Welcome, {store.user.full_name}
-                </span>
-              </li>
-            )}
-
             {/* Login Button */}
             {!store.isAuthenticated && (
               <li className="nav-item me-3">
@@ -64,26 +57,20 @@ export const Navbar = () => {
             {store.isAuthenticated && (
               <>
                 <li className="nav-item me-3">
+                  <Link className="nav-link" to="/user_logued">
+                    <i className="fas fa-poll fa-lg"></i> My Surveys
+                  </Link>
+                </li>
+                <li className="nav-item me-3">
                   <button className="btn btn-login nav-link" onClick={handleLogout}>
                     Logout
                   </button>
                 </li>
-                <li className="nav-item me-3">
-                  <Link className="nav-link" to="/dashboard">
-                    <i className="fas fa-poll fa-lg"></i> My Surveys
-                  </Link>
-                </li>
               </>
             )}
-            <li className="nav-item me-3">
-              <Link className="nav-link" to="/profile">
-                <i className="fas fa-cog fa-lg navbar-settings-icon"></i>
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
     </nav>
   );
 };
-

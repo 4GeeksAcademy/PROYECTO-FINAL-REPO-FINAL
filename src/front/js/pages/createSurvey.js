@@ -1,3 +1,4 @@
+// CreateSurvey Component
 import React, { useState, useEffect, useContext } from "react";
 import "../../styles/createSurvey.css";
 import { useNavigate } from "react-router-dom";
@@ -23,6 +24,7 @@ export const CreateSurvey = () => {
         required: true,
         options: []
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -69,6 +71,7 @@ export const CreateSurvey = () => {
     };
 
     const handleFinalSubmit = async () => {
+        setIsSubmitting(true);
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Authorization", `Bearer ${localStorage.getItem("jwt-token")}`);
@@ -115,6 +118,8 @@ export const CreateSurvey = () => {
         } catch (error) {
             console.error("Error sending data:", error);
             alert("An error occurred while sending the data. Please check the server logs for more details.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -129,7 +134,7 @@ export const CreateSurvey = () => {
                     <form>
                         <h4>Survey Details</h4>
                         <div className="mb-3">
-                            <label className="form-label">Survey Title</label>
+                            <label className="form-label form-label-create">Survey Title</label>
                             <input
                                 type="text"
                                 className="form-control create-survey-input"
@@ -140,7 +145,7 @@ export const CreateSurvey = () => {
                             />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Description</label>
+                            <label className="form-label form-label-create">Description</label>
                             <textarea
                                 className="form-control create-survey-input"
                                 name="description"
@@ -150,7 +155,7 @@ export const CreateSurvey = () => {
                             ></textarea>
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Start Date</label>
+                            <label className="form-label form-label-create">Start Date</label>
                             <input
                                 type="date"
                                 className="form-control create-survey-input"
@@ -161,7 +166,7 @@ export const CreateSurvey = () => {
                             />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">End Date</label>
+                            <label className="form-label form-label-create">End Date</label>
                             <input
                                 type="date"
                                 className="form-control create-survey-input"
@@ -172,7 +177,7 @@ export const CreateSurvey = () => {
                             />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Survey Status</label>
+                            <label className="form-label form-label-create">Survey Status</label>
                             <select
                                 className="form-select create-survey-input"
                                 name="status"
@@ -186,7 +191,7 @@ export const CreateSurvey = () => {
                             </select>
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Public Survey?</label>
+                            <label className="form-label form-label-create">Public Survey?</label>
                             <div>
                                 <label className="form-check-label">
                                     <input
@@ -211,7 +216,7 @@ export const CreateSurvey = () => {
 
                         <h4 className="mt-5">Add Questions</h4>
                         <div className="mb-3">
-                            <label className="form-label">Question Text</label>
+                            <label className="form-label form-label-create">Question Text</label>
                             <input
                                 type="text"
                                 className="form-control create-survey-input"
@@ -221,7 +226,7 @@ export const CreateSurvey = () => {
                             />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Question Type</label>
+                            <label className="form-label form-label-create">Question Type</label>
                             <select
                                 className="form-select create-survey-input"
                                 value={currentQuestion.question_type}
@@ -229,12 +234,11 @@ export const CreateSurvey = () => {
                                 required
                             >
                                 <option value="multiple_choice">Multiple Choice</option>
-                                <option value="open_ended">Open-ended</option>
-                                <option value="yes_no">Yes/No</option>
+                                <option value="yes_no">Yes/No (Unique Choice)</option>
                             </select>
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Add Options (for Multiple Choice)</label>
+                            <label className="form-label form-label-create">Add Options (for Multiple Choice and Yes/No)</label>
                             <input
                                 type="text"
                                 className="form-control create-survey-input"
@@ -245,7 +249,6 @@ export const CreateSurvey = () => {
                                         e.target.value = "";
                                     }
                                 }}
-                                disabled={currentQuestion.question_type !== "multiple_choice"}
                             />
                             <ul className="mt-2">
                                 {currentQuestion.options.map((option, index) => (
@@ -288,13 +291,11 @@ export const CreateSurvey = () => {
                                 {surveyData.questions.map((q, index) => (
                                     <li key={index}>
                                         <strong>Question {index + 1}: </strong>{q.question_text}
-                                        {q.question_type === "multiple_choice" && (
-                                            <ul>
-                                                {q.options.map((option, optionIndex) => (
-                                                    <li key={optionIndex}>{option.option_text}</li>
-                                                ))}
-                                            </ul>
-                                        )}
+                                        <ul>
+                                            {q.options.map((option, optionIndex) => (
+                                                <li key={optionIndex}>{option.option_text}</li>
+                                            ))}
+                                        </ul>
                                     </li>
                                 ))}
                             </ul>
@@ -305,8 +306,9 @@ export const CreateSurvey = () => {
                                 type="button"
                                 className="btn btn-success w-100 create-survey-btn"
                                 onClick={handleFinalSubmit}
+                                disabled={isSubmitting}
                             >
-                                Submit Survey
+                                {isSubmitting ? "Submitting..." : "Submit Survey"}
                             </button>
                         </div>
                     </form>

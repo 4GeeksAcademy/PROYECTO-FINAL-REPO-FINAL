@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-import { HomeUserLogued } from "./pages/home_user_logued";
+// import { HomeUserLogued } from "./pages/home_user_logued";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext, { Context } from "./store/appContext";
@@ -37,28 +37,28 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<Register />} path="/register" />
                         <Route element={<AvailableSurveys />} path="/surveys" />
-                        <Route 
+                        {/* <Route 
                             path="/user_logued" 
                             element={store.isAuthenticated ? <HomeUserLogued /> : <Navigate to="/login" />} 
-                        />
+                        /> */}
                         <Route 
                             path="/profile" 
                             element={store.isAuthenticated ? <UserProfile /> : <Navigate to="/login" />} 
                         />
                         <Route 
-                            path="/dashboard" 
+                            path="/user_logued" 
                             element={store.isAuthenticated ? <UserDashboard /> : <Navigate to="/login" />} 
                         />
-                                                <Route 
+                                                {/* <Route 
                             path="/user_logued" 
                             element={store.isAuthenticated ? <HomeUserLogued /> : <Navigate to="/login" />} 
-                        />
-<Route 
+                        /> */}
+                        <Route 
                             path="/create_survey" 
                             element={store.isAuthenticated ? <CreateSurvey /> : <Navigate to="/login" />} 
                         />
                         <Route element={<SurveyResults/>} path="/surveys/:id"/>
-                        <Route element={<ForgotPassword/>} path="/password_recovery" />
+                        <Route element={<ForgotPassword/>} path="/forgot-password" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />

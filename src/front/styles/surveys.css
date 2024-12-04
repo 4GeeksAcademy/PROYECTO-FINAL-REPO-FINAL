@@ -252,3 +252,57 @@ div.dropdown{
 }
 
 
+/* Contenedor de la paginación */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+/* Botones de la paginación */
+.pagination-button {
+  background-color: #5e2e84; /* Color morado primario */
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
+}
+
+/* Hover para los botones de paginación */
+.pagination-button:hover {
+  background-color: #9146d8; /* Color morado más claro para hover */
+  transform: scale(1.05); /* Ligeramente agrandar el botón al pasar el ratón */
+}
+
+/* Botón de paginación activo */
+.pagination-button.active {
+  background-color: #fcbe38; /* Color dorado para indicar la página actual */
+  color: #5e2e84; /* Texto morado para hacer contraste */
+  font-weight: bold;
+}
+
+/* Estado de los botones cuando están desactivados */
+.pagination-button:disabled {
+  background-color: #e0e0e0; /* Gris claro para indicar estado deshabilitado */
+  color: #a0a0a0; /* Texto gris */
+  cursor: not-allowed;
+}
+
+/* Contenedor de la lista de encuestas */
+.available-surveys-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Animación al hacer clic en el botón */
+.pagination-button:active {
+  transform: scale(0.95); /* Reducir ligeramente el tamaño al hacer clic */
+}
